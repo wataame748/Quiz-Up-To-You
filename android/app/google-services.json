@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "937105647664",
+    "firebase_url": "https://quiz-up-to-you.firebaseio.com",
+    "project_id": "quiz-up-to-you",
+    "storage_bucket": "quiz-up-to-you.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937105647664:android:15c0b1415b03917c48a5f5",
+        "android_client_info": {
+          "package_name": "com.example.quiz_up_to_you_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937105647664-rr2ib0k73gv219t87judgld0b0i3u209.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBNGfb04zBY9R0myjpQ9KnSFkCApc0dlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937105647664-rr2ib0k73gv219t87judgld0b0i3u209.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
