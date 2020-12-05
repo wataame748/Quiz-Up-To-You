@@ -37,4 +37,12 @@ class QuizModel extends ChangeNotifier{
     }
     return items;
   }
+  String getCorrectAnswer() {
+    for (int i = 0; i < anslist.length; i++) {
+      if (anslist[i].isTrue) {
+        return anslist[i].choicetext;
+      }
+    }
+    return null;
+  }
 }

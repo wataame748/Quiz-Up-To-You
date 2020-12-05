@@ -58,6 +58,7 @@ class QuizPage extends StatelessWidget{
                               tilenum: anslist.indexOf(answer) + 1,
                               num: num,
                               answer: answer,
+                              correctchoice: model.getCorrectAnswer(),
                             ),
                             ).toList(),
                           ),
@@ -77,13 +78,15 @@ class ChoiceCard extends StatelessWidget{
     this.answer,
     this.tilenum,
     this.num,
+    this.correctchoice,
 });
  final Answer answer;
  final int tilenum;
+ final correctchoice;
   int num;
   @override
   Widget build(BuildContext context) {
-String correctchoice = answer.getCorrectAns(answer);
+
     return Container(
       padding: EdgeInsets.all(10),
       child: Card(

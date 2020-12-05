@@ -22,12 +22,4 @@ class Answer{
   String choicetext;
   bool isTrue;
   int ansnum;
-
-  String getCorrectAns(Answer answer){
-    if(answer.isTrue){
-      return this.choicetext;
-    }else{
-      return null;
-    }
-  }
 }
