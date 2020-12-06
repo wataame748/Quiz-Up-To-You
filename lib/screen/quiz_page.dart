@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_up_to_you_app/model/quiz_page_model.dart';
 import 'package:quiz_up_to_you_app/quiz.dart';
-import 'package:quiz_up_to_you_app/quiz_page_model.dart';
-import 'package:quiz_up_to_you_app/result_page.dart';
+
+import 'package:quiz_up_to_you_app/screen/result_page.dart';
 
 class QuizPage extends StatelessWidget{
   QuizPage({
@@ -24,7 +25,15 @@ class QuizPage extends StatelessWidget{
                 final anslist = model.anslist;
                 final quizlist = model.quizlist;
                 if(quizlist == null || quizlist.length == 0) {
-                  return Container();
+                  return Container(
+                    child: Center(
+                      child: Text('Loading...',
+                      style: TextStyle(
+                        fontSize: 40,
+                      ),
+                      ),
+                    ),
+                  );
                 }
                 return Container(
                   child: Column(

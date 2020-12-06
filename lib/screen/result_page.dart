@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_up_to_you_app/quiz_page.dart';
+import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
 
 class ResultPage extends StatelessWidget{
   ResultPage({

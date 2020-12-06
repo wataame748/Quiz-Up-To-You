@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_up_to_you_app/quiz_page.dart';
+import 'package:quiz_up_to_you_app/screen/menu.dart';
+import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,8 +56,10 @@ class TopPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                       ),
-                      Text('クイズを作りそしてシェアしませんか？'),
-                      SizedBox(height: 40,),
+
+                      Text('あなただけのクイズを作りませんか？'),
+                      Text('勉強用に100問の四択クイズを作成できます。'),
+                      SizedBox(height: 30,),
                       Text('<アカウントをお持ちでない方はこちらから>'),
                       SizedBox(height: 10,),
                       RaisedButton(
@@ -85,7 +89,7 @@ class TopPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => QuizPage(num: num,)
+                                    builder: (context) => MainPage()
                                 ),
                               );
                                },
