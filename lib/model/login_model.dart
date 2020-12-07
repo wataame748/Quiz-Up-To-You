@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class LoginModel extends ChangeNotifier{
   String mail = '';
   String password = '';
+  String uid = '';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future logIn() async{
@@ -18,7 +19,7 @@ class LoginModel extends ChangeNotifier{
       email: mail,
       password: password,
     );
-    final uid = result.user.uid;
+    uid = result.user.uid;
     //todo 端末に保存
   }
 }

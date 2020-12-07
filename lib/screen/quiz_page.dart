@@ -7,15 +7,19 @@ import 'package:quiz_up_to_you_app/screen/result_page.dart';
 
 class QuizPage extends StatelessWidget{
   QuizPage({
-    this.num
+    this.num,
+    this.uid,
+    this.cansolve,
 });
+  final uid;
+
   int num;
+  int cansolve;
   @override
   Widget build(BuildContext context) {
-
     final questionnum = num + 1;
     return ChangeNotifierProvider<QuizModel>(
-      create: (_) => QuizModel()..getQuizList()..getAnsList(questionnum),
+      create: (_) => QuizModel()..getQuizList(uid)..getAnsList(questionnum),
       child: Scaffold(
             appBar: AppBar(
               title: Text('Question$questionnum'),
@@ -68,6 +72,8 @@ class QuizPage extends StatelessWidget{
                               num: num,
                               answer: answer,
                               correctchoice: model.getCorrectAnswer(),
+                              cansolve: cansolve,
+                              uid: uid,
                             ),
                             ).toList(),
                           ),
@@ -88,10 +94,14 @@ class ChoiceCard extends StatelessWidget{
     this.tilenum,
     this.num,
     this.correctchoice,
+    this.cansolve,
+    this.uid
 });
  final Answer answer;
  final int tilenum;
  final correctchoice;
+ final uid;
+  int cansolve;
   int num;
   @override
   Widget build(BuildContext context) {
@@ -115,7 +125,13 @@ class ChoiceCard extends StatelessWidget{
           onTap: (){
           Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ResultPage(num: num, isTrue: answer.isTrue, correctchoice: correctchoice,)),
+          MaterialPageRoute(builder: (context) => ResultPage(
+            num: num,
+            isTrue: answer.isTrue,
+            correctchoice: correctchoice,
+            cansolve: cansolve,
+            uid: uid,
+          )),
           );
           },
         ),

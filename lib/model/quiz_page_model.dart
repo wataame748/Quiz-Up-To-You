@@ -8,8 +8,8 @@ class QuizModel extends ChangeNotifier{
   List<Quiz> quizlist = [];
   List<Answer> anslist = [];
 
-  Future getQuizList() async {
-    CollectionReference quizs = FirebaseFirestore.instance.collection('Quiz');
+  Future getQuizList(String uid) async {
+    CollectionReference quizs = FirebaseFirestore.instance.collection(uid);
     final snaphots = await quizs.get();
     final docs = snaphots.docs;
     final quizlist = docs.map((doc) => Quiz(doc)).toList();

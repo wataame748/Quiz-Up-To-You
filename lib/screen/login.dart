@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget{
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MenuPage())
+                                  builder: (context) => MenuPage(uid: model.uid,))
                               );
                         }catch(e){
                           _showDialog(context, e.toString());

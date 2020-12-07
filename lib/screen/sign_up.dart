@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_up_to_you_app/model/sign_up_model.dart';
+import 'package:quiz_up_to_you_app/screen/login.dart';
 
 class SignUpPage extends StatelessWidget{
   @override
@@ -81,7 +82,12 @@ class SignUpPage extends StatelessWidget{
             FlatButton(
               child: Text('OK'),
               onPressed: (){
-                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LoginPage()
+                  ),
+                );
               },
             )
           ],

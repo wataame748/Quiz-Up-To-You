@@ -6,13 +6,18 @@ class ResultPage extends StatelessWidget{
     this.isTrue,
     this.num,
     this.correctchoice,
+    this.cansolve,
+    this.uid,
 });
   final isTrue;
   final correctchoice;
+  final uid;
+  int cansolve;
   int num;
   @override
   Widget build(BuildContext context) {
     if(isTrue){
+      ++cansolve;
       return Scaffold(
         body: Container(
           padding: EdgeInsets.all(10),
@@ -32,6 +37,7 @@ class ResultPage extends StatelessWidget{
                 color: Colors.redAccent,
                 size: 100,
                 ),
+                Text('ただ今の正解数 $cansolve',),
                 SizedBox(height: 30,),
                 TextButton(
                   child: Text('次の問題へ'),
@@ -40,7 +46,11 @@ class ResultPage extends StatelessWidget{
                     ++num;
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => QuizPage(num: num,)),
+                      MaterialPageRoute(builder: (context) => QuizPage(
+                        num: num,
+                        cansolve: cansolve,
+                        uid: uid,
+                      )),
                     );
                   },
                 ),
@@ -80,6 +90,7 @@ class ResultPage extends StatelessWidget{
                       fontSize: 20
                   ),
                 ),
+                Text('ただ今の正解数 $cansolve',),
                 TextButton(
                   child: Text('次の問題へ'),
                   onPressed: (){
@@ -87,7 +98,11 @@ class ResultPage extends StatelessWidget{
                     ++num;
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => QuizPage(num: num,)),
+                      MaterialPageRoute(builder: (context) => QuizPage(
+                        num: num,
+                        cansolve: cansolve,
+                        uid: uid,
+                      )),
                     );
                   },
                 ),
