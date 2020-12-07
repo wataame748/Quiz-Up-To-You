@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_up_to_you_app/screen/login.dart';
 import 'package:quiz_up_to_you_app/screen/menu.dart';
 import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
+import 'package:quiz_up_to_you_app/screen/sign_up.dart';
 
 
 void main() async {
@@ -70,10 +72,10 @@ class TopPage extends StatelessWidget {
                         ),
                         ),
                         onPressed: (){
-                          //todo: 新規登録ページへ飛ぶ  以下はtestとしてQuizPageへ飛ぶ
+                          //todo: 新規登録ページへ飛ぶ
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => QuizPage(num: 0,)),
+                            MaterialPageRoute(builder: (context) => SignUpPage()),
                           );
                         },
                       ),
@@ -89,7 +91,7 @@ class TopPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => MainPage()
+                                    builder: (context) => LoginPage()
                                 ),
                               );
                                },

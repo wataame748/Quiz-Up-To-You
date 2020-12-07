@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
 
-class MainPage extends StatelessWidget{
+class MenuPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
