@@ -19,7 +19,7 @@ class QuizPage extends StatelessWidget{
   Widget build(BuildContext context) {
     final questionnum = num + 1;
     return ChangeNotifierProvider<QuizModel>(
-      create: (_) => QuizModel()..getQuizList(uid)..getAnsList(questionnum),
+      create: (_) => QuizModel()..getQuizList(uid)..getAnsList(questionnum, uid),
       child: Scaffold(
             appBar: AppBar(
               title: Text('Question$questionnum'),

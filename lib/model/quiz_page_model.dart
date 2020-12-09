@@ -18,8 +18,8 @@ class QuizModel extends ChangeNotifier{
     notifyListeners();
   }
 
-  Future getAnsList(int num) async {
-    CollectionReference anses = FirebaseFirestore.instance.collection('Answer$num');
+  Future getAnsList(int num, String uid) async {
+    CollectionReference anses = FirebaseFirestore.instance.collection('$uid$num');
     final snaphots = await anses.get();
     final docs = snaphots.docs;
     final anslist = docs.map((doc) => Answer(doc)).toList();

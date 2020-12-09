@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_up_to_you_app/model/quiz_page_model.dart';
+import 'package:quiz_up_to_you_app/screen/quiz_add_page.dart';
 import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
 
 class MenuPage extends StatelessWidget{
@@ -50,7 +51,22 @@ class MenuPage extends StatelessWidget{
                     SizedBox(height: 20,),
                     RaisedButton(
                       color: Colors.redAccent[100],
-                      child: Text('問題を追加、編集する'),
+                      child: Text('問題を追加する'),
+                      onPressed: (){
+                        //todo 問題をページへ飛ぶ
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AddQuizPage(
+                            num: quizsum + 1,
+                            uid: uid,
+                          )),
+                        );
+                      },
+                    ),
+                    SizedBox(height: 20,),
+                    RaisedButton(
+                      color: Colors.redAccent[100],
+                      child: Text('問題を編集する'),
                       onPressed: (){
                         //問題をページへ飛ぶ
                       },
