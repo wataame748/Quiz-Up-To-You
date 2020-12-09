@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_up_to_you_app/model/quiz_page_model.dart';
 import 'package:quiz_up_to_you_app/quiz.dart';
+import 'package:quiz_up_to_you_app/screen/menu.dart';
 
 import 'package:quiz_up_to_you_app/screen/result_page.dart';
 
@@ -23,11 +24,21 @@ class QuizPage extends StatelessWidget{
       child: Scaffold(
             appBar: AppBar(
               title: Text('Question$questionnum'),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.more_vert),
+                  tooltip: 'TOPへ戻る',
+                  onPressed: (){
+                    _showDialog(context, 'MENUへ戻りますか？');
+                  }
+                ),
+              ],
             ),
             body: Consumer<QuizModel>(
               builder: (context, model, child){
                 final anslist = model.anslist;
                 final quizlist = model.quizlist;
+                final quizsum = quizlist.length;
                 if(quizlist == null || quizlist.length == 0) {
                   return Container(
                     child: Center(
@@ -74,6 +85,7 @@ class QuizPage extends StatelessWidget{
                               correctchoice: model.getCorrectAnswer(),
                               cansolve: cansolve,
                               uid: uid,
+                              quizsum: quizsum,
                             ),
                             ).toList(),
                           ),
@@ -86,6 +98,37 @@ class QuizPage extends StatelessWidget{
           ),
     );
   }
+  Future _showDialog(
+      BuildContext context,
+      String title,
+      ) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text(title),
+            actions: [
+              FlatButton(
+                child: Text('OK'),
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MenuPage(uid: uid,))
+                  );
+                },
+              ),
+              FlatButton(
+                child: Text('Cancel'),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        }
+    );
+  }
 }
 
 class ChoiceCard extends StatelessWidget{
@@ -95,12 +138,15 @@ class ChoiceCard extends StatelessWidget{
     this.num,
     this.correctchoice,
     this.cansolve,
-    this.uid
+    this.uid,
+    this.quizsum,
 });
  final Answer answer;
  final int tilenum;
  final correctchoice;
  final uid;
+ final quizsum;
+
   int cansolve;
   int num;
   @override
@@ -131,6 +177,7 @@ class ChoiceCard extends StatelessWidget{
             correctchoice: correctchoice,
             cansolve: cansolve,
             uid: uid,
+            quizsum: quizsum,
           )),
           );
           },

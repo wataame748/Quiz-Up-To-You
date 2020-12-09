@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_up_to_you_app/model/sign_up_model.dart';
 import 'package:quiz_up_to_you_app/screen/login.dart';
+import 'package:quiz_up_to_you_app/screen/main.dart';
 
 class SignUpPage extends StatelessWidget{
   @override
@@ -13,6 +14,17 @@ class SignUpPage extends StatelessWidget{
       child: Scaffold(
         appBar: AppBar(
           title: Text('新規登録画面'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => TopPage()
+                ),
+              );
+            },
+          ),
         ),
         body: Consumer<SignUpModel>(
           builder: (context, model, child) {
@@ -22,8 +34,8 @@ class SignUpPage extends StatelessWidget{
                 children: [
                   TextField(
                     decoration: InputDecoration(
-                      labelText: 'mail address',
-                      hintText: 'example@mail.com'
+                      labelText: 'your mail address',
+                      hintText: 'example@email.com'
                     ),
                     controller: mailController,
                     onChanged: (text){
@@ -57,7 +69,7 @@ class SignUpPage extends StatelessWidget{
                         await model.signUp();
                         _showDialog(context, '登録完了');
                       }catch(e){
-                        _showDialog(context, e.toString());
+                        _showDialog(context, '新規登録に失敗');
                       }
                     },
                   ),
@@ -73,7 +85,7 @@ class SignUpPage extends StatelessWidget{
       BuildContext context,
       String title,
       ) {
-    showDialog(
+   return showDialog(
       context: context,
       builder: (BuildContext context){
         return AlertDialog(

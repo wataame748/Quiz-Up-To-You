@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_up_to_you_app/model/login_model.dart';
+import 'package:quiz_up_to_you_app/screen/main.dart';
 import 'package:quiz_up_to_you_app/screen/menu.dart';
 
 class LoginPage extends StatelessWidget{
@@ -13,6 +14,17 @@ class LoginPage extends StatelessWidget{
       child: Scaffold(
         appBar: AppBar(
           title: Text('新規登録画面'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => TopPage()
+                ),
+              );
+            },
+          ),
         ),
         body: Consumer<LoginModel>(
             builder: (context, model, child) {
@@ -22,8 +34,8 @@ class LoginPage extends StatelessWidget{
                   children: [
                     TextField(
                       decoration: InputDecoration(
-                          labelText: 'mail address',
-                          hintText: 'example@mail.com'
+                          labelText: 'your mail address',
+                          hintText: 'example@email.com'
                       ),
                       controller: mailController,
                       onChanged: (text){
@@ -62,7 +74,7 @@ class LoginPage extends StatelessWidget{
                                   builder: (context) => MenuPage(uid: model.uid,))
                               );
                         }catch(e){
-                          _showDialog(context, e.toString());
+                          _showDialog(context, 'ログインに失敗しました');
                         }
                       },
                     ),

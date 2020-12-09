@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_up_to_you_app/screen/fial_result_page.dart';
 import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
 
 class ResultPage extends StatelessWidget{
@@ -8,10 +9,12 @@ class ResultPage extends StatelessWidget{
     this.correctchoice,
     this.cansolve,
     this.uid,
+    this.quizsum,
 });
   final isTrue;
   final correctchoice;
   final uid;
+  final quizsum;
   int cansolve;
   int num;
   @override
@@ -37,21 +40,33 @@ class ResultPage extends StatelessWidget{
                 color: Colors.redAccent,
                 size: 100,
                 ),
-                Text('ただ今の正解数 $cansolve',),
+                Text('ただ今の正解数 $cansolve/$quizsum',),
                 SizedBox(height: 30,),
                 TextButton(
                   child: Text('次の問題へ'),
                   onPressed: (){
                     //todo 次のクイズへ遷移
-                    ++num;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => QuizPage(
-                        num: num,
-                        cansolve: cansolve,
-                        uid: uid,
-                      )),
-                    );
+                    if(num + 1 == quizsum){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FinalResultPage(
+                          quizsum: quizsum,
+                          cansolve: cansolve,
+                          uid: uid,
+                        )),
+                      );
+                    }else {
+                      ++num;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>
+                            QuizPage(
+                              num: num,
+                              cansolve: cansolve,
+                              uid: uid,
+                            )),
+                      );
+                    }
                   },
                 ),
               ],
@@ -90,20 +105,32 @@ class ResultPage extends StatelessWidget{
                       fontSize: 20
                   ),
                 ),
-                Text('ただ今の正解数 $cansolve',),
+                Text('ただ今の正解数 $cansolve/$quizsum',),
                 TextButton(
                   child: Text('次の問題へ'),
                   onPressed: (){
                     //todo 次のクイズへ遷移
-                    ++num;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => QuizPage(
-                        num: num,
-                        cansolve: cansolve,
-                        uid: uid,
-                      )),
-                    );
+                    if(num + 1 == quizsum){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FinalResultPage(
+                          quizsum: quizsum,
+                          cansolve: cansolve,
+                          uid: uid,
+                        )),
+                      );
+                    }else {
+                      ++num;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>
+                            QuizPage(
+                              num: num,
+                              cansolve: cansolve,
+                              uid: uid,
+                            )),
+                      );
+                    }
                   },
                 ),
               ],
