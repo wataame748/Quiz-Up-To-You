@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_up_to_you_app/model/quiz_page_model.dart';
 import 'package:quiz_up_to_you_app/screen/quiz_add_page.dart';
+import 'package:quiz_up_to_you_app/screen/quiz_edit_page.dart';
 import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
 
 class MenuPage extends StatelessWidget{
@@ -69,6 +70,12 @@ class MenuPage extends StatelessWidget{
                       child: Text('問題を編集する'),
                       onPressed: (){
                         //問題をページへ飛ぶ
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => QuizEditPage(
+                            uid: uid,
+                          )),
+                        );
                       },
                     ),
                   ],

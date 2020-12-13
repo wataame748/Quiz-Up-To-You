@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_up_to_you_app/screen/login.dart';
-import 'package:quiz_up_to_you_app/screen/menu.dart';
-import 'package:quiz_up_to_you_app/screen/quiz_page.dart';
 import 'package:quiz_up_to_you_app/screen/sign_up.dart';
 
 
@@ -60,7 +58,7 @@ class TopPage extends StatelessWidget {
                       ),
 
                       Text('あなただけのクイズを作りませんか？'),
-                      Text('勉強用に100問の四択クイズを作成できます。'),
+                      Text('勉強用に四択クイズを作成できます。'),
                       SizedBox(height: 30,),
                       Text('<アカウントをお持ちでない方はこちらから>'),
                       SizedBox(height: 10,),

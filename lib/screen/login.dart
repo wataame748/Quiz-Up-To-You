@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget{
       create: (_) => LoginModel(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('新規登録画面'),
+          title: Text('ログイン画面'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: (){
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget{
                     SizedBox(height: 40,),
                     RaisedButton(
                       color: Colors.redAccent[100],
-                      child: Text('登録する',
+                      child: Text('ログイン',
                         style: TextStyle(
                           color: Colors.white,
                         ),
